@@ -1,4 +1,3 @@
-package Clase 4;
 
 public class Vehiculo {
     
@@ -39,4 +38,22 @@ public class Vehiculo {
         " Cilindraje:" + cilindraje + "Chasis: "+ chasis + "Peso:"
         + peso + "Potencia: "+ potencia +"}";
     }
-}
+    //Metodos de la clase
+    public void acelerar (){
+        System.out.println("Vehiculo acelerando.....");
+    }
+    public void frenar (){
+        System.out.println("Vehiculo frenando....");
+    }
+    public void girarIzquierda (){
+        System.out.println ("Vehiculo girando izquierda...");
+    }
+    public void girarDerecha (){
+        System.out.println("Vehiculo girando derecha");
+    }
+
+    public void retroceder (){
+        System.out.println ("Vehiculo retrocediendo...");
+    }
+ }
+ 
