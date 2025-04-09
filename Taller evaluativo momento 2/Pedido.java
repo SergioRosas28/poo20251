@@ -13,8 +13,13 @@ public class Pedido {
         this.cliente = cliente;
         this.producto = producto;
         this.fecha = fecha;
-        this. numeroTarjetaCredito = numeroTarjetaCredito;
+        this.numeroTarjetaCredito = numeroTarjetaCredito;
 
     }
 
+    public String toString() {
+        return "Pedido { Cliente: " + cliente + "Product: " + Arrays.toString(producto) + "Date: " + fecha + "Int: "
+                + numeroTarjetaCredito + "}";
+
+    }
 }

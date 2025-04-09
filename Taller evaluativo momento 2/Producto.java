@@ -4,7 +4,11 @@ public class producto {
     private int numero;
 
     // Metodos
-    public producto(int numero){
+    public producto(int numero) {
         this.numero = numero;
+    }
+
+    public String toString() {
+        return "producto { numero:" + numero + "}";
     }
 }

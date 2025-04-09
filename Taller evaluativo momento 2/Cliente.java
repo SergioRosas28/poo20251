@@ -11,6 +11,6 @@ public class Cliente {
     }
 
     public String toString(){
-        return "Cliente { Cedula: " + cedula + "Nombre: " + nombre"}";
+        return "Cliente { Cedula: " + cedula + "Nombre: " + nombre + "}";
     }
 }

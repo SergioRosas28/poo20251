@@ -11,4 +11,7 @@ public class Impresion extends Producto {
         this.foto = foto;
     }
 
+    public String toString() {
+        return "impresion { color: " + "Foto: " + Arrays.toString(foto) + "}";
+    }
 }

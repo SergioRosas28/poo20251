@@ -9,4 +9,8 @@ public class Camara extends Producto {
         this.marca = marca;
         this.modelo = modelo;
     }
+
+    public String toString(){
+        return "Camara { marca: " + marca + "modelo: " + modelo + "}";
+    }
 }
