@@ -3,9 +3,11 @@ public class Foto {
     // Atributos
 
     private String fichero;
-    // Metodo
 
+
+    // Metodo
     public void print() {
+
 
     }
 }

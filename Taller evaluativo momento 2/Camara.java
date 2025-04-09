@@ -5,5 +5,8 @@ public class Camara extends Producto {
     private String modelo;
 
     // Metodos
-
+    public Camara(String marca, String modelo) {
+        this.marca = marca;
+        this.modelo = modelo;
+    }
 }

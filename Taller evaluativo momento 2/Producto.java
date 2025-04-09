@@ -4,5 +4,7 @@ public class producto {
     private int numero;
 
     // Metodos
-
+    public producto(int numero){
+        this.numero = numero;
+    }
 }
