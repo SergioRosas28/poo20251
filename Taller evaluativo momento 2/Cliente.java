@@ -1,8 +1,8 @@
 public class Cliente {
 
     // Atributos
-    private string cedula;
-    private string nombre;
+    private String cedula;
+    private String nombre;
 
     // Metodos
     public Cliente(String cedula, String nombre) {

@@ -1,4 +1,5 @@
-public class Impresion extends Producto {
+import java.util.Arrays;
+public class Impresion {
 
     // Atributos
     private String color;
@@ -6,12 +7,12 @@ public class Impresion extends Producto {
 
     // Metodos
 
-    public Impresion(String color, Foto[] foto) {
+    public Impresion (String color, Foto[] foto){
         this.color = color;
         this.foto = foto;
     }
 
     public String toString() {
-        return "impresion { color: " + "Foto: " + Arrays.toString(foto) + "}";
+        return "Impresion { color: "+ color + "Foto: " + Arrays.toString(foto) + "}";
     }
 }

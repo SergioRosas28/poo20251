@@ -1,4 +1,4 @@
-public class Camara extends Producto {
+public class Camara {
 
     // Atributos
     private String marca;

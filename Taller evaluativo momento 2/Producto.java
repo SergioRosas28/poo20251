@@ -1,10 +1,10 @@
-public class producto {
+public class Producto {
 
     // Atributos
     private int numero;
 
     // Metodos
-    public producto(int numero) {
+    public Producto(int numero) {
         this.numero = numero;
     }
 
