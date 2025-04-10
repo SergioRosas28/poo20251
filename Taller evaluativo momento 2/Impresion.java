@@ -13,6 +13,6 @@ public class Impresion {
     }
 
     public String toString() {
-        return "Impresion { color: "+ color + "Foto: " + Arrays.toString(foto) + "}";
+        return "Impresion { : "+ color + "Foto: " + Arrays.toString(foto) + "}";
     }
 }

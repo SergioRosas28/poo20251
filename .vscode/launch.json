@@ -1,0 +1,79 @@
+{
+    // Use IntelliSense para saber los atributos posibles.
+    // Mantenga el puntero para ver las descripciones de los existentes atributos.
+    // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+        
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Condicionales",
+            "request": "launch",
+            "mainClass": "Condicionales",
+            "projectName": "poo20251_ee19eee2"
+        },
+        {
+            "type": "java",
+            "name": "CreacionArreglos",
+            "request": "launch",
+            "mainClass": "CreacionArreglos",
+            "projectName": "poo20251_ee19eee2"
+        },
+        {
+            "type": "java",
+            "name": "Ejecutar",
+            "request": "launch",
+            "mainClass": "Ejecutar",
+            "projectName": "poo20251_ee19eee2"
+        },
+        {
+            "type": "java",
+            "name": "EjecutarComposicionAgregacion",
+            "request": "launch",
+            "mainClass": "EjecutarComposicionAgregacion",
+            "projectName": "poo20251_ee19eee2"
+        },
+        {
+            "type": "java",
+            "name": "EjecutarVehiculo",
+            "request": "launch",
+            "mainClass": "EjecutarVehiculo",
+            "projectName": "poo20251_ee19eee2"
+        },
+        {
+            "type": "java",
+            "name": "Ejercicio3",
+            "request": "launch",
+            "mainClass": "Ejercicio3",
+            "projectName": "poo20251_ee19eee2"
+        },
+        {
+            "type": "java",
+            "name": "SumaFilasColumnas17",
+            "request": "launch",
+            "mainClass": "SumaFilasColumnas17",
+            "projectName": "poo20251_ee19eee2"
+        },
+        {
+            "type": "java",
+            "name": "Tallerpunto3",
+            "request": "launch",
+            "mainClass": "Tallerpunto3",
+            "projectName": "poo20251_ee19eee2"
+        },
+        {
+            "type": "java",
+            "name": "variables",
+            "request": "launch",
+            "mainClass": "variables",
+            "projectName": "poo20251_ee19eee2"
+        }
+    ]
+}

@@ -11,6 +11,6 @@ public class Camara {
     }
 
     public String toString(){
-        return "Camara { marca: " + marca + "modelo: " + modelo + "}";
+        return "Camara { Canon: " + marca + "Canon 4000D: " + modelo + "}";
     }
 }

@@ -20,8 +20,8 @@ public class Pedido {
     // Método toString
     public String toString() {
         return "Pedido { Cliente: " + cliente +
-               ", Productos: " + Arrays.toString(producto) +
-               ", Fecha: " + fecha +
-               ", Tarjeta: " + numeroTarjetaCredito + " }";
+               ", Camara Canon: " + Arrays.toString(producto) +
+               ", 05/10/2025: " + fecha +
+               ", Bancolombia 10000: " + numeroTarjetaCredito + " }";
     }
 }
