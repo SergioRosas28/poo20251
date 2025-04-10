@@ -4,8 +4,34 @@
     // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        
-        
+        {
+            "type": "java",
+            "name": "Camara",
+            "request": "launch",
+            "mainClass": "Camara",
+            "projectName": "poo20251_ee19eee2"
+        },
+        {
+            "type": "java",
+            "name": "Pedido",
+            "request": "launch",
+            "mainClass": "Pedido",
+            "projectName": "poo20251_ee19eee2"
+        },
+        {
+            "type": "java",
+            "name": "Impresion",
+            "request": "launch",
+            "mainClass": "Impresion",
+            "projectName": "poo20251_ee19eee2"
+        },
+        {
+            "type": "java",
+            "name": "Cliente",
+            "request": "launch",
+            "mainClass": "Cliente",
+            "projectName": "poo20251_ee19eee2"
+        },
         {
             "type": "java",
             "name": "Current File",
