@@ -1,25 +1,21 @@
+// Nombre del archivo: Pedido.java
 public class Cliente {
-
-    // Atributos
     private String cedula;
     private String nombre;
 
-    // Constructor
+    // Constructor de la clase Cliente
     public Cliente(String cedula, String nombre) {
         this.cedula = cedula;
         this.nombre = nombre;
     }
 
-    // Método toString
-    @Override
-    public String toString() {
-        return "Cliente { Cedula: " + cedula + ", Nombre: " + nombre + " }";
+    // Métodos para obtener los atributos del cliente
+    public String getCedula() {
+        return cedula;
     }
 
-    // Método main para probar
-    public static void main(String[] args) {
-        Cliente cliente1 = new Cliente("10005658", "Julian");
-        System.out.println(cliente1);
+    // Método para obtener el nombre del cliente
+    public String getNombre() {
+        return nombre;
     }
 }
-

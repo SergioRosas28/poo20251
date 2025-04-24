@@ -1,36 +1,26 @@
-import java.util.Arrays;
+import java.util.List;
 
-public class Impresion {
-
-    // Atributos
+public class Impresion extends Producto {
     private String color;
-    private Foto[] foto;
+    private List<Foto> fotos;
 
-    // Constructor
-    public Impresion(String color, Foto[] foto) {
+    public Impresion(int numero, String color, List<Foto> fotos) {
+        super(numero);
         this.color = color;
-        this.foto = foto;
+        this.fotos = fotos;
     }
 
-    // Método toString
-    @Override
-    public String toString() {
-        return "Impresion { Color: " + color + ", Fotos: " + Arrays.toString(foto) + " }";
+    public String getColor() {
+        return color;
     }
 
-    // Método main para probar la clase
-    public static void main(String[] args) {
-        // Crear algunas fotos
-        Foto[] fotos = {
-            new Foto("familia.jpg"),
-            new Foto("vacaciones.jpg"),
-            new Foto("mascota.png")
-        };
+    public List<Foto> getFotos() {
+        return fotos;
+    }
 
-        // Crear impresión
-        Impresion impresion = new Impresion("Color", fotos);
-
-        // Imprimir el resultado
-        System.out.println(impresion);
+    public void imprimirFotos() {
+        for (Foto foto : fotos) {
+            foto.print();
+        }
     }
 }

@@ -1,23 +1,22 @@
-public class Camara {
-
-    // Atributos
+// Nombre del archivo: Pedido.java
+public class Camara extends Producto {
     private String marca;
     private String modelo;
 
-    public Camara(String marca, String modelo) {
+    // Constructor de la clase Camara
+    public Camara(int numero, String marca, String modelo) {
+        super(numero);
         this.marca = marca;
         this.modelo = modelo;
     }
 
-    // Método toString
-    @Override
-    public String toString() {
-        return "Camara { Marca: " + marca + ", Modelo: " + modelo + " }";
+    // Métodos para obtener los atributos de la cámara
+    public String getMarca() {
+        return marca;
     }
 
-    // Método main para probar la clase
-    public static void main(String[] args) {
-        Camara cam = new Camara("Canon", "4000D");
-        System.out.println(cam);
+    // Método para obtener el modelo de la cámara
+    public String getModelo() {
+        return modelo;
     }
 }

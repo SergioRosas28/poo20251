@@ -1,14 +1,11 @@
-public class Producto {
-
-    // Atributos
+public abstract class Producto {
     private int numero;
 
-    // Metodos
     public Producto(int numero) {
         this.numero = numero;
     }
 
-    public String toString() {
-        return "producto { 10447878:" + numero + "}";
+    public int getNumero() {
+        return numero;
     }
 }
