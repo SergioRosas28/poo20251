@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Juego de Lucha</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #222; color: #fff; }
+        .container { max-width: 600px; margin: 40px auto; background: #333; padding: 24px; border-radius: 10px; box-shadow: 0 0 10px #000; }
+        h1 { text-align: center; }
+        .estado { margin: 16px 0; padding: 12px; background: #222; border-radius: 6px; }
+        .acciones button { margin: 6px; padding: 10px 18px; font-size: 1em; border-radius: 5px; border: none; background: #4caf50; color: #fff; cursor: pointer; }
+        .acciones button:disabled { background: #888; }
+        .log { background: #111; padding: 10px; border-radius: 6px; height: 120px; overflow-y: auto; margin-top: 18px; }
+        label, select, input { margin: 4px 0; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Juego de Lucha</h1>
+    <div id="seleccion"></div>
+    <div id="juego" style="display:none;">
+        <div class="estado" id="estado"></div>
+        <div class="acciones" id="acciones"></div>
+        <div class="log" id="log"></div>
+    </div>
+</div>
+<script>
+// --- Lógica del juego en JS ---
+const personajesDisponibles = [
+    { tipo: 'Guerrero', vida: 100, habilidad: 'Golpe de espada', especial: 20 },
+    { tipo: 'Mago', vida: 100, habilidad: 'Hechizo mágico', especial: 25 },
+    { tipo: 'Ninja', vida: 100, habilidad: 'Ataque sigiloso', especial: () => Math.floor(Math.random()*15)+20 }
+];
+const armasDisponibles = [
+    { nombre: 'Espada', poder: 10 },
+    { nombre: 'Bastón mágico', poder: 12 },
+    { nombre: 'Shuriken', poder: 8 },
+    { nombre: 'Sin arma', poder: 0 }
+];
+let jugadores = [null, null];
+let turno = 0;
+let log = [];
+
+function renderSeleccion() {
+    let html = '<h2>Selecciona los personajes y armas</h2>';
+    for(let i=0;i<2;i++) {
+        html += `<div><b>Jugador ${i+1}</b><br>
+            Nombre: <input id="nombre${i}" value="Jugador${i+1}" maxlength="12"><br>
+            Personaje: <select id="personaje${i}">`;
+        personajesDisponibles.forEach((p,idx)=>{
+            html += `<option value="${idx}">${p.tipo}</option>`;
+        });
+        html += `</select><br>Arma: <select id="arma${i}">`;
+        armasDisponibles.forEach((a,idx)=>{
+            html += `<option value="${idx}">${a.nombre} (Poder: ${a.poder})</option>`;
+        });
+        html += `</select></div><hr>`;
+    }
+    html += '<button onclick="iniciarJuego()">Iniciar Juego</button>';
+    document.getElementById('seleccion').innerHTML = html;
+}
+
+function iniciarJuego() {
+    for(let i=0;i<2;i++) {
+        const nombre = document.getElementById('nombre'+i).value || `Jugador${i+1}`;
+        const tipoIdx = +document.getElementById('personaje'+i).value;
+        const armaIdx = +document.getElementById('arma'+i).value;
+        const base = personajesDisponibles[tipoIdx];
+        jugadores[i] = {
+            nombre,
+            tipo: base.tipo,
+            vida: base.vida,
+            arma: armasDisponibles[armaIdx],
+            especial: base.especial,
+            habilidad: base.habilidad,
+            puedeRematar: false
+        };
+    }
+    turno = 0;
+    log = [];
+    document.getElementById('seleccion').style.display = 'none';
+    document.getElementById('juego').style.display = '';
+    renderEstado();
+    renderAcciones();
+    renderLog();
+}
+
+function renderEstado() {
+    let html = '';
+    for(let i=0;i<2;i++) {
+        html += `<b>${jugadores[i].nombre} (${jugadores[i].tipo})</b><br>Vida: ${jugadores[i].vida}<br>Arma: ${jugadores[i].arma.nombre} (Poder: ${jugadores[i].arma.poder})<br><br>`;
+    }
+    document.getElementById('estado').innerHTML = html;
+}
+
+function renderAcciones() {
+    let j = jugadores[turno];
+    let oponente = jugadores[1-turno];
+    let html = `<b>Turno de ${j.nombre}</b><br>`;
+    html += `<button onclick="accion('A')">Atacar (sin arma)</button>`;
+    html += `<button onclick="accion('W')" ${j.arma.poder===0?'disabled':''}>Atacar con arma</button>`;
+    html += `<button onclick="accion('H')">Habilidad especial</button>`;
+    if(oponente.vida < 10 && oponente.vida > 0) html += `<button onclick="accion('M')">Remate Mortal</button>`;
+    document.getElementById('acciones').innerHTML = html;
+}
+
+function accion(tipo) {
+    let j = jugadores[turno];
+    let oponente = jugadores[1-turno];
+    let mensaje = '';
+    if(tipo==='A') {
+        let poder = Math.floor(Math.random()*21)+10;
+        oponente.vida -= poder;
+        mensaje = `${j.nombre} ataca a ${oponente.nombre} sin arma e inflige ${poder} de daño.`;
+    } else if(tipo==='W') {
+        if(j.arma.poder>0) {
+            let poder = Math.floor(Math.random()*21)+10 + j.arma.poder;
+            oponente.vida -= poder;
+            mensaje = `${j.nombre} ataca a ${oponente.nombre} con ${j.arma.nombre} e inflige ${poder} de daño.`;
+        } else {
+            mensaje = `${j.nombre} no tiene arma equipada. Turno perdido.`;
+        }
+    } else if(tipo==='H') {
+        let poder = typeof j.especial === 'function' ? j.especial() : j.especial;
+        oponente.vida -= poder;
+        mensaje = `${j.nombre} usa su habilidad especial (${j.habilidad}) e inflige ${poder} de daño a ${oponente.nombre}.`;
+    } else if(tipo==='M') {
+        if(oponente.vida < 10 && oponente.vida > 0) {
+            mensaje = `${j.nombre} ejecuta un remate mortal sobre ${oponente.nombre}!`;
+            oponente.vida = 0;
+        } else {
+            mensaje = `Solo puedes usar el remate mortal si el oponente tiene menos de 10 puntos de vida.`;
+        }
+    }
+    if(oponente.vida < 0) oponente.vida = 0;
+    log.push(mensaje);
+    renderEstado();
+    renderLog();
+    if(jugadores[0].vida <= 0 || jugadores[1].vida <= 0) {
+        document.getElementById('acciones').innerHTML = `<b>¡${j.nombre} ha ganado!</b><br><button onclick="location.reload()">Jugar de nuevo</button>`;
+    } else {
+        turno = 1-turno;
+        renderAcciones();
+    }
+}
+
+function renderLog() {
+    document.getElementById('log').innerHTML = log.slice(-8).map(x=>`<div>${x}</div>`).join('');
+}
+
+renderSeleccion();
+</script>
+</body>
+</html>
