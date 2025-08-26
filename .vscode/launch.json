@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "MenuInteractivo",
+            "request": "launch",
+            "mainClass": "MenuInteractivo",
+            "projectName": "poo20251_ee19eee2"
+        },
+        {
+            "type": "java",
             "name": "Camara",
             "request": "launch",
             "mainClass": "Camara",
