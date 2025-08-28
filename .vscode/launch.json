@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "BibliotecaApp",
+            "request": "launch",
+            "mainClass": "Biblioteca.BibliotecaApp",
+            "projectName": "poo20251_ee19eee2"
+        },
+        {
+            "type": "java",
+            "name": "MenuLista",
+            "request": "launch",
+            "mainClass": "MenuLista",
+            "projectName": "poo20251_ee19eee2"
+        },
+        {
+            "type": "java",
             "name": "MenuInteractivo",
             "request": "launch",
             "mainClass": "MenuInteractivo",
