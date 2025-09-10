@@ -1,53 +1,53 @@
 package Biblioteca;
 
-// Clase que representa un libro con campos: id, título, autor, año y ISBN
+// Clase que representa un libro con los campos básicos: título, autor y año
 public class Libro {
-    private String id;
+    // Atributos privados que almacenan la información del libro
     private String titulo;
     private String autor;
     private int anio;
-    private String isbn;
-    private boolean disponible = true;
 
-    // Constructor principal con id e isbn
-    public Libro(String id, String titulo, String autor, String isbn) {
-        this.id = id;
-        this.titulo = titulo;
-        this.autor = autor;
-        this.isbn = isbn;
-    }
-
-    // Constructor auxiliar (sin id/isbn) para usos rápidos
+    // Constructor: crea un nuevo Libro con título, autor y año
     public Libro(String titulo, String autor, int anio) {
         this.titulo = titulo;
         this.autor = autor;
         this.anio = anio;
     }
 
-    // getters / setters
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+    // Getters y setters: permiten acceder y modificar los atributos de forma controlada
+    // Devuelve el título del libro
+    public String getTitulo() {
+        return titulo;
+    }
 
-    public String getTitulo() { return titulo; }
-    public void setTitulo(String titulo) { this.titulo = titulo; }
+    // Actualiza el título del libro
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
 
-    public String getAutor() { return autor; }
-    public void setAutor(String autor) { this.autor = autor; }
+    // Devuelve el autor del libro
+    public String getAutor() {
+        return autor;
+    }
 
-    public int getAnio() { return anio; }
-    public void setAnio(int anio) { this.anio = anio; }
+    // Actualiza el autor del libro
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
 
-    public String getIsbn() { return isbn; }
-    public void setIsbn(String isbn) { this.isbn = isbn; }
+    // Devuelve el año de publicación
+    public int getAnio() {
+        return anio;
+    }
 
-    public boolean isDisponible() { return disponible; }
-    public void setDisponible(boolean disponible) { this.disponible = disponible; }
+    // Actualiza el año de publicación
+    public void setAnio(int anio) {
+        this.anio = anio;
+    }
 
+    // toString: representación legible del objeto Libro para impresión en consola
     @Override
     public String toString() {
-        String idPart = (id != null ? "ID:" + id + " | " : "");
-        String isbnPart = (isbn != null ? " | ISBN:" + isbn : "");
-        String anioPart = (anio != 0 ? " | Año:" + anio : "");
-        return idPart + "Título: " + titulo + " | Autor: " + autor + anioPart + isbnPart + " | " + (disponible ? "DISPONIBLE" : "PRESTADO");
+        return "Título: " + titulo + ", Autor: " + autor + ", Año: " + anio;
     }
 }
