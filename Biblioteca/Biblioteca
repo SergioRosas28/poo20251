@@ -1,0 +1,31 @@
+public class Biblioteca {
+    static ArrayList<Libro> libros = new ArrayList<>();
+    static ArrayList<Usuario> usuarios = new ArrayList<>();
+    static ArrayList<Prestamo> prestamos = new ArrayList<>();
+    static Scanner sc = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        int opcion;
+        do {
+            System.out.println("\n=== GESTIÓN DE BIBLIOTECA ===");
+            System.out.println("1. Gestionar Libros");
+            System.out.println("2. Gestionar Usuarios");
+            System.out.println("3. Realizar Préstamo");
+            System.out.println("4. Devolver (Remover) Préstamo");
+            System.out.println("5. Listar Préstamos");
+            System.out.println("0. Salir");
+            System.out.print("Seleccione una opción: ");
+            opcion = sc.nextInt();
+            sc.nextLine();
+
+            switch (opcion) {
+                case 1 -> gestionarLibros();
+                case 2 -> gestionarUsuarios();
+                case 3 -> realizarPrestamo();
+                case 4 -> devolverPrestamo();
+                case 5 -> listarPrestamos();
+                case 0 -> System.out.println("Saliendo del sistema...");
+                default -> System.out.println("Opción no válida.");
+            }
+        } while (opcion != 0);
+    }
