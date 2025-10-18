@@ -1,8 +1,8 @@
- public class Libro {
-    int id;
-    String titulo;
-    String autor;
-    boolean prestado;
+public class Libro {
+    private int id;
+    private String titulo;
+    private String autor;
+    private boolean prestado;
 
     public Libro(int id, String titulo, String autor) {
         this.id = id;
@@ -10,6 +10,12 @@
         this.autor = autor;
         this.prestado = false;
     }
+
+    public int getId() { return id; }
+    public String getTitulo() { return titulo; }
+    public String getAutor() { return autor; }
+    public boolean isPrestado() { return prestado; }
+    public void setPrestado(boolean prestado) { this.prestado = prestado; }
 
     @Override
     public String toString() {

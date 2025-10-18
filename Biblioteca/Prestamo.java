@@ -1,14 +1,17 @@
-class Prestamo {
-    Usuario usuario;
-    Libro libro;
+public class Prestamo {
+    private Usuario usuario;
+    private Libro libro;
 
     public Prestamo(Usuario usuario, Libro libro) {
         this.usuario = usuario;
         this.libro = libro;
     }
 
+    public Usuario getUsuario() { return usuario; }
+    public Libro getLibro() { return libro; }
+
     @Override
     public String toString() {
-        return "Libro: " + libro.titulo + " → Usuario: " + usuario.nombre;
+        return "Libro: " + libro.getTitulo() + " → Usuario: " + usuario.getNombre();
     }
 }
