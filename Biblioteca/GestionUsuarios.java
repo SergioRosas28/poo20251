@@ -1,25 +1,32 @@
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class GestionUsuarios {
-    private ArrayList<Usuario> usuarios = new ArrayList<>();
+    private LinkedList<Usuario> usuarios = new LinkedList<>();
     private Scanner sc = new Scanner(System.in);
 
     public void menuUsuarios() {
         int op;
         do {
-            System.out.println("\n--- Gestión de Usuarios ---");
+            System.out.println("--- Gestión de Usuarios ---");
             System.out.println("1. Agregar usuario");
             System.out.println("2. Listar usuarios");
             System.out.println("3. Eliminar usuario");
             System.out.println("0. Volver");
             System.out.print("Opción: ");
-            op = sc.nextInt(); sc.nextLine();
+            op = sc.nextInt();
+            sc.nextLine();
 
             switch (op) {
-                case 1: agregarUsuario();
-                case 2: listarUsuarios();
-                case 3: eliminarUsuario();
+                case 1:
+                    agregarUsuario();
+                    break;
+                case 2:
+                    listarUsuarios();
+                    break;
+                case 3:
+                    eliminarUsuario();
+                    break;
             }
         } while (op != 0);
     }
@@ -43,12 +50,11 @@ public class GestionUsuarios {
         listarUsuarios();
         System.out.print("ID del usuario a eliminar: ");
         int id = sc.nextInt();
-        sc.nextLine(); //
         usuarios.removeIf(u -> u.getId() == id);
-        System.out.println("Usuario eliminado.");
+        System.out.println("Usuario eliminado correctamente.");
     }
 
-    public ArrayList<Usuario> getUsuarios() {
+    public LinkedList<Usuario> getUsuarios() {
         return usuarios;
     }
 }

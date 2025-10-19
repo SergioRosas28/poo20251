@@ -7,12 +7,17 @@ public class Usuario {
         this.nombre = nombre;
     }
 
-    public int getId() { return id; }
-    public String getNombre() { return nombre; }
+    public int getId() {
+        return id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
 
     @Override
     public String toString() {
-        return id + ". " + nombre;
+        return "ID: " + id + " - Nombre: " + nombre;
     }
 }
 

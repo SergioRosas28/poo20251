@@ -1,8 +1,8 @@
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class GestionPrestamos {
-    private ArrayList<Prestamo> prestamos = new ArrayList<>();
+    private LinkedList<Prestamo> prestamos = new LinkedList<>();
     private Scanner sc = new Scanner(System.in);
 
     public void realizarPrestamo(GestionUsuarios gestionUsuarios, GestionLibros gestionLibros) {
@@ -13,11 +13,13 @@ public class GestionPrestamos {
 
         gestionUsuarios.listarUsuarios();
         System.out.print("ID del usuario: ");
-        int idU = sc.nextInt(); sc.nextLine();
+        int idU = sc.nextInt();
+        sc.nextLine();
 
         gestionLibros.listarLibros();
         System.out.print("ID del libro: ");
-        int idL = sc.nextInt(); sc.nextLine();
+        int idL = sc.nextInt();
+        sc.nextLine();
 
         Usuario usuario = gestionUsuarios.getUsuarios().stream()
                 .filter(u -> u.getId() == idU)
@@ -46,11 +48,12 @@ public class GestionPrestamos {
 
     public void devolverLibro() {
         listarPrestamos();
-        System.out.print("Título del libro a devolver: ");
-        String titulo = sc.nextLine();
+        System.out.print("ID del libro a devolver: ");
+        int idL = sc.nextInt();
+        sc.nextLine();
 
         Prestamo p = prestamos.stream()
-                .filter(pr -> pr.getLibro().getTitulo().equalsIgnoreCase(titulo))
+                .filter(pr -> pr.getLibro().getId() == idL)
                 .findFirst().orElse(null);
 
         if (p == null) {
@@ -63,3 +66,4 @@ public class GestionPrestamos {
         System.out.println("Libro devuelto correctamente.");
     }
 }
+

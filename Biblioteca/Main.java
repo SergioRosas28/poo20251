@@ -10,7 +10,7 @@ public class Main {
         int opcion;
 
         do {
-            System.out.println("\n=== GESTIÓN DE BIBLIOTECA ===");
+            System.out.println("=== GESTIÓN DE BIBLIOTECA ===");
             System.out.println("1. Gestionar Libros");
             System.out.println("2. Gestionar Usuarios");
             System.out.println("3. Realizar Préstamo");
@@ -21,13 +21,26 @@ public class Main {
             opcion = sc.nextInt();
 
             switch (opcion) {
-                case 1: gestionLibros.menuLibros();
-                case 2: gestionUsuarios.menuUsuarios();
-                case 3: gestionPrestamos.realizarPrestamo(gestionUsuarios, gestionLibros);
-                case 4: gestionPrestamos.devolverLibro();
-                case 5: gestionPrestamos.listarPrestamos();
-                case 0: System.out.println("Saliendo...");
-                default: System.out.println("Opción no válida.");
+                case 1:
+                    gestionLibros.menuLibros();
+                    break;
+                case 2:
+                    gestionUsuarios.menuUsuarios();
+                    break;
+                case 3:
+                    gestionPrestamos.realizarPrestamo(gestionUsuarios, gestionLibros);
+                    break;
+                case 4:
+                    gestionPrestamos.devolverLibro();
+                    break;
+                case 5:
+                    gestionPrestamos.listarPrestamos();
+                    break;
+                case 0:
+                    System.out.println("Saliendo del sistema...");
+                    break;
+                default:
+                    System.out.println("Opción no válida.");
             }
         } while (opcion != 0);
     }

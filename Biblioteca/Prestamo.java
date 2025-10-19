@@ -7,11 +7,17 @@ public class Prestamo {
         this.libro = libro;
     }
 
-    public Usuario getUsuario() { return usuario; }
-    public Libro getLibro() { return libro; }
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public Libro getLibro() {
+        return libro;
+    }
 
     @Override
     public String toString() {
-        return "Libro: " + libro.getTitulo() + " → Usuario: " + usuario.getNombre();
+        return "Usuario: " + usuario.getNombre() + " - Libro: " + libro.getTitulo();
     }
 }
+

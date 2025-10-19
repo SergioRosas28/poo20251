@@ -8,18 +8,25 @@ public class GestionLibros {
     public void menuLibros() {
         int op;
         do {
-            System.out.println("\n--- Gestión de Libros ---");
+            System.out.println("--- Gestión de Libros ---");
             System.out.println("1. Agregar libro");
             System.out.println("2. Listar libros");
             System.out.println("3. Eliminar libro");
             System.out.println("0. Volver");
             System.out.print("Opción: ");
-            op = sc.nextInt(); sc.nextLine();
+            op = sc.nextInt();
+            sc.nextLine();
 
             switch (op) {
-                case 1: agregarLibro();
-                case 2: listarLibros();
-                case 3: eliminarLibro();
+                case 1:
+                    agregarLibro();
+                    break;
+                case 2:
+                    listarLibros();
+                    break;
+                case 3:
+                    eliminarLibro();
+                    break;
             }
         } while (op != 0);
     }
@@ -27,9 +34,7 @@ public class GestionLibros {
     public void agregarLibro() {
         System.out.print("Título: ");
         String titulo = sc.nextLine();
-        System.out.print("Autor: ");
-        String autor = sc.nextLine();
-        libros.add(new Libro(libros.size() + 1, titulo, autor));
+        libros.add(new Libro(libros.size() + 1, titulo));
         System.out.println("Libro agregado correctamente.");
     }
 
@@ -46,10 +51,11 @@ public class GestionLibros {
         System.out.print("ID del libro a eliminar: ");
         int id = sc.nextInt();
         libros.removeIf(l -> l.getId() == id);
-        System.out.println("Libro eliminado.");
+        System.out.println("Libro eliminado correctamente.");
     }
 
     public ArrayList<Libro> getLibros() {
         return libros;
     }
 }
+
