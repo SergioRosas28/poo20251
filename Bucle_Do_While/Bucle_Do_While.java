@@ -19,6 +19,6 @@ public class Bucle_Do_While {
         if(numero!=5);
         System.out.println("No ingresaste el numero 5");
       }while(numero!= 5);
-      System.out.println("Gracias");
+      System.out.println("Gracias, es el fucking numero correcto");
     }
  }
