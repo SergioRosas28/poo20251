@@ -15,7 +15,6 @@ public class Usuario {
         return nombre;
     }
 
-    @Override
     public String toString() {
         return "ID: " + id + " - Nombre: " + nombre;
     }

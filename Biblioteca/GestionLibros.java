@@ -3,10 +3,10 @@ import java.util.Scanner;
 
 public class GestionLibros {
     private ArrayList<Libro> libros = new ArrayList<>();
-    private Scanner sc = new Scanner(System.in);
+    private Scanner menu_libro = new Scanner(System.in);
 
     public void menuLibros() {
-        int op;
+        int options;
         do {
             System.out.println("--- Gestión de Libros ---");
             System.out.println("1. Agregar libro");
@@ -14,10 +14,10 @@ public class GestionLibros {
             System.out.println("3. Eliminar libro");
             System.out.println("0. Volver");
             System.out.print("Opción: ");
-            op = sc.nextInt();
-            sc.nextLine();
+            options = menu_libro.nextInt();
+            menu_libro.nextLine();
 
-            switch (op) {
+            switch (options) {
                 case 1:
                     agregarLibro();
                     break;
@@ -28,12 +28,12 @@ public class GestionLibros {
                     eliminarLibro();
                     break;
             }
-        } while (op != 0);
+        } while (options != 0);
     }
 
     public void agregarLibro() {
         System.out.print("Título: ");
-        String titulo = sc.nextLine();
+        String titulo = menu_libro.nextLine();
         libros.add(new Libro(libros.size() + 1, titulo));
         System.out.println("Libro agregado correctamente.");
     }
@@ -49,7 +49,7 @@ public class GestionLibros {
     public void eliminarLibro() {
         listarLibros();
         System.out.print("ID del libro a eliminar: ");
-        int id = sc.nextInt();
+        int id = menu_libro.nextInt();
         libros.removeIf(l -> l.getId() == id);
         System.out.println("Libro eliminado correctamente.");
     }

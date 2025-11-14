@@ -14,8 +14,7 @@ public class Prestamo {
     public Libro getLibro() {
         return libro;
     }
-
-    @Override
+    
     public String toString() {
         return "Usuario: " + usuario.getNombre() + " - Libro: " + libro.getTitulo();
     }
