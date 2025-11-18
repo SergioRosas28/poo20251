@@ -15,8 +15,8 @@ public class Biblioteca {
             System.out.println("5. Listar Préstamos");
             System.out.println("0. Salir");
             System.out.print("Seleccione una opción: ");
-            opcion = sc.nextInt();
-            sc.nextLine();
+            opcion = entrada.nextInt();
+            entrada.nextLine();
 
             switch (opcion) {
                 case 1 -> gestionarLibros();
