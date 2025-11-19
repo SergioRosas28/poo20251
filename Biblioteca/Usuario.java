@@ -1,22 +1,21 @@
 public class Usuario {
-    private int id;
-    private String nombre;
+    private String nombreUsuario;
+    private int edadUsuario;
 
-    public Usuario(int id, String nombre) {
-        this.id = id;
-        this.nombre = nombre;
+    public Usuario(String nombreUsuario, int edadUsuario) {
+        this.nombreUsuario = nombreUsuario;
+        this.edadUsuario = edadUsuario;
     }
 
-    public int getId() {
-        return id;
+    public String getNombreUsuario() {
+        return nombreUsuario;
     }
 
-    public String getNombre() {
-        return nombre;
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
     }
 
     public String toString() {
-        return "ID: " + id + " - Nombre: " + nombre;
+        return nombreUsuario + " - Edad: " + edadUsuario;
     }
 }
-

@@ -1,22 +1,13 @@
 public class Prestamo {
-    private Usuario usuario;
-    private Libro libro;
+    private Usuario usuarioPrestamo;
+    private Libro libroPrestado;
 
-    public Prestamo(Usuario usuario, Libro libro) {
-        this.usuario = usuario;
-        this.libro = libro;
+    public Prestamo(Usuario usuarioPrestamo, Libro libroPrestado) {
+        this.usuarioPrestamo = usuarioPrestamo;
+        this.libroPrestado = libroPrestado;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public Libro getLibro() {
-        return libro;
-    }
-    
     public String toString() {
-        return "Usuario: " + usuario.getNombre() + " - Libro: " + libro.getTitulo();
+        return usuarioPrestamo.getNombreUsuario() + " tiene prestado: " + libroPrestado.getNombreLibro();
     }
 }
-

@@ -1,31 +1,26 @@
 public class Libro {
-    private int id;
-    private String titulo;
-    private boolean prestado;
+    private String nombreLibro;
+    private String autorLibro;
 
-    public Libro(int id, String titulo) {
-        this.id = id;
-        this.titulo = titulo;
-        this.prestado = false;
+    public Libro(String nombreLibro, String autorLibro) {
+        this.nombreLibro = nombreLibro;
+        this.autorLibro = autorLibro;
     }
 
-    public int getId() {
-        return id;
+    public String getNombreLibro() {
+        return nombreLibro;
+    }
+    public void setNombreLibro(String nombreLibro) {
+        this.nombreLibro = nombreLibro;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public String getAutorLibro() {
+        return autorLibro;
     }
-
-    public boolean isPrestado() {
-        return prestado;
+    public void setAutorLibro(String autorLibro) {
+        this.autorLibro = autorLibro;
     }
-
-    public void setPrestado(boolean prestado) {
-        this.prestado = prestado;
-    }
-    
     public String toString() {
-        return "ID: " + id + " - Título: " + titulo + (prestado ? " (Prestado)" : "");
+        return nombreLibro + " - " + autorLibro;
     }
 }
