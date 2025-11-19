@@ -16,7 +16,7 @@ public class Main {
     static void mainMenu() {
         int opcionMenu;
         do {
-            System.out.println("\n=== MENU PRINCIPAL ===");
+            System.out.println(" Menu Principal");
             System.out.println("1: Gestionar libros");
             System.out.println("2: Gestionar usuarios");
             System.out.println("3: Prestamos");
@@ -38,7 +38,7 @@ public class Main {
     static void menuLibros() {
         int opcionLibro;
         do {
-            System.out.println("\n--- Menu Libros ---");
+            System.out.println(" Menu Libros");
             System.out.println("1. Agregar libro");
             System.out.println("2: Editar libro");
             System.out.println("3: Lista de libros");
@@ -51,7 +51,7 @@ public class Main {
                 case 1: agregarLibro();
                 case 2: editarLibro();
                 case 3: listarLibros();
-                case 0: System.out.println("Volviendo al menú principal...");
+                case 0: System.out.println("Volviendo al menú principal");
             }
         } while (opcionLibro != 0);
     }
